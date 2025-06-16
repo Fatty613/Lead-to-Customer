@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoho: Shipment to Invoicing Process Flow</title>
+    <title>Zoho CRM: Invoicing to Stock Movement Update Process Flow</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -105,16 +105,16 @@
 </head>
 <body>
     <div class="container mx-auto p-4 md:p-8">
-        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#005082] mb-10">Zoho CRM: Shipment to Invoicing Process Flow</h1>
-        <p class="max-w-4xl mx-auto text-center text-gray-700 mb-12">This process flow illustrates the critical steps from a completed shipment to final invoicing within Zoho CRM, including automated stock verification, payment reconciliation, and customs-compliant commercial invoice generation.</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#005082] mb-10">Zoho CRM: Invoicing to Stock Movement Update Process Flow</h1>
+        <p class="max-w-4xl mx-auto text-center text-gray-700 mb-12">This process flow illustrates how invoicing transactions within Zoho CRM accurately trigger corresponding deductions in stock levels, ensuring real-time inventory data synchronization.</p>
 
         <div class="flow-container flex justify-center items-stretch">
 
             <div class="flow-item">
                 <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">🚚</div>
-                    <div class="step-title">1. Shipment Confirmed</div>
-                    <p class="step-description">Goods have been successfully dispatched from the warehouse based on the sales order.</p>
+                    <div class="step-icon">🧾</div>
+                    <div class="step-title">1. Invoice Finalized</div>
+                    <p class="step-description">An invoice is successfully generated and marked as complete after shipment.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -123,9 +123,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">📊</div>
-                    <div class="step-title">2. Stock-Contingent Invoicing</div>
-                    <p class="step-description">Invoicing is contingent on physical stock availability; system prevents invoicing quantities exceeding actual dispatched stock.</p>
+                    <div class="step-icon">📉</div>
+                    <div class="step-title">2. Stock Deduction Triggered</div>
+                    <p class="step-description">The finalized invoice automatically triggers a corresponding deduction in the relevant inventory stock levels.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -134,9 +134,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">🧾</div>
-                    <div class="step-title">3. Generate Invoice</div>
-                    <p class="step-description">An official invoice is generated, reflecting the shipped items and associated costs.</p>
+                    <div class="step-icon">🔄</div>
+                    <div class="step-title">3. Real-Time Inventory Update</div>
+                    <p class="step-description">Inventory records are updated in real-time, reflecting the precise quantities of items sold.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -145,9 +145,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">💰</div>
-                    <div class="step-title">4. Auto Payment Reflection</div>
-                    <p class="step-description">If a retainer/pro forma payment was recorded, the final invoice automatically reflects this payment as completed.</p>
+                    <div class="step-icon">🔍</div>
+                    <div class="step-title">4. Stock Data Consistency</div>
+                    <p class="step-description">Ensures accurate stock availability for future sales orders and prevents discrepancies.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -156,20 +156,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">📄</div>
-                    <div class="step-title">5. Generate Commercial Invoice</div>
-                    <p class="step-description">System generates a customs-compliant Commercial Invoice (landscape format) with detailed product and consolidated load information.</p>
-                </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">✅</div>
-                    <div class="step-title">6. Invoice Finalized & Sent</div>
-                    <p class="step-description">The invoice and commercial invoice are finalized and sent to the customer for payment and customs clearance.</p>
+                    <div class="step-icon">📈</div>
+                    <div class="step-title">5. Financial Record Synchronization</div>
+                    <p class="step-description">Maintains alignment between financial records (invoices) and physical inventory data.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
