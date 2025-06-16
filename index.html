@@ -3,199 +3,321 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoho CRM: Lead to Customer Process Flow</title>
+    <title>Wetroom Materials: Business Transformation Infographic</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f4f8;
-            color: #333;
         }
-        .flow-card {
-            background-color: white;
-            border-radius: 0.5rem; /* rounded-lg */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* shadow-md */
-            padding: 1.5rem;
-            margin: 1rem;
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 120px;
-            border-left: 4px solid;
-            transition: transform 0.2s ease-in-out;
+            position: relative;
+            flex-grow: 1;
         }
-        .flow-card:hover {
-            transform: translateY(-5px);
-        }
-        .step-icon {
-            font-size: 2.5rem; /* Large icon size */
-            margin-bottom: 0.75rem;
+        .flowchart-arrow {
+            color: #0077C0;
+            font-size: 2rem;
             line-height: 1;
-        }
-        .step-title {
-            font-weight: 600; /* font-semibold */
-            font-size: 1.125rem; /* text-lg */
-            margin-bottom: 0.5rem;
-            color: #005082; /* Darker blue from palette */
-        }
-        .step-description {
-            font-size: 0.875rem; /* text-sm */
-            color: #6b7280; /* gray-600 */
-        }
-        .arrow {
-            font-size: 3rem; /* Larger arrow for visibility */
-            color: #0077C0; /* Primary blue from palette */
             margin: 0 0.5rem;
-            align-self: center; /* Center vertically in flex container */
-            line-height: 1;
-            display: none; /* Hide on small screens */
+            display: none;
         }
-
-        /* Responsive arrows for medium screens and up */
         @media (min-width: 768px) {
-            .arrow {
-                display: block;
-            }
-            .flow-container {
-                flex-direction: row;
-                flex-wrap: wrap; /* Allow wrapping on larger screens */
-                justify-content: center;
-            }
-            .flow-item {
-                flex: 1 1 calc(33% - 2rem); /* Approx 3 items per row on larger screens */
-                max-width: calc(33% - 2rem);
-            }
-            .vertical-arrow {
-                display: none; /* Hide vertical arrow on larger screens */
-            }
-             .horizontal-arrow {
+            .flowchart-arrow {
                 display: block;
             }
         }
-
-        /* Specific styling for vertical connections on small screens */
-        @media (max-width: 767px) {
-            .flow-container {
-                flex-direction: column;
-                align-items: center;
-            }
-            .flow-item {
-                width: 90%; /* Full width on small screens */
-            }
-            .arrow {
-                display: none; /* Hide horizontal arrow on small screens */
-            }
-            .vertical-arrow {
-                display: block;
-                font-size: 2.5rem;
-                color: #0077C0;
-                margin: 0.5rem 0;
-            }
+        .chart-container {
+            position: relative;
+            height: 320px;
+            width: 100%;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
         }
-        .flow-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        .icon-bg {
+            background-color: #e0f2fe;
         }
     </style>
 </head>
-<body>
+<body class="text-gray-800">
+
     <div class="container mx-auto p-4 md:p-8">
-        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#005082] mb-10">Zoho CRM: Lead to Customer Management</h1>
-        <p class="max-w-4xl mx-auto text-center text-gray-700 mb-12">This process flow illustrates the journey of a lead within Zoho CRM, from initial capture through qualification and conversion, culminating in comprehensive customer record management. This is designed using out-of-the-box functionalities to ensure efficient sales operations and a unified customer view.</p>
 
-        <div class="flow-container flex justify-center items-stretch">
+        <header class="text-center mb-12 md:mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-[#005082] mb-2">Transforming Wetroom Materials</h1>
+            <p class="text-lg md:text-xl text-gray-600">A Strategic Shift to a Unified Business Platform for Enhanced Efficiency and Growth</p>
+            <a href="deal-to-quote-flow.html" class="inline-block bg-[#0077C0] text-white px-6 py-3 rounded-lg shadow-lg hover:bg-[#00A1E4] transition duration-300 mt-6">
+                Deal to Quote
+            </a>
+        </header>
 
-            <div class="flow-item">
-                <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">🎯</div>
-                    <div class="step-title">1. Lead Capture</div>
-                    <p class="step-description">Automated collection of leads from various sources like web forms, imports, or manual entry by sales teams.</p>
+        <section id="challenge" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#005082] mb-8">The Challenge: A Fragmented Foundation</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-600 mb-10">Wetroom Materials faced significant operational hurdles due to disconnected systems, leading to inefficiencies, data silos, and manual workarounds that hindered growth and visibility.</p>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-3">🔄</div>
+                    <h3 class="text-xl font-semibold mb-2">Process Duplication</h3>
+                    <p class="text-gray-600">Separate systems for CRM, quotes, and inventory created redundant data entry and workflow overlaps.</p>
                 </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">📤</div>
-                    <div class="step-title">2. Lead Assignment</div>
-                    <p class="step-description">Leads are automatically distributed to sales representatives based on predefined rules (e.g., round-robin, territory, product interest).</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-3">🧩</div>
+                    <h3 class="text-xl font-semibold mb-2">Data Silos</h3>
+                    <p class="text-gray-600">Customer data was split between Sage and HubSpot, lacking a single source of truth for sales and marketing.</p>
                 </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">🔍</div>
-                    <div class="step-title">3. Lead Qualification</div>
-                    <p class="step-description">Sales reps assess leads using criteria like budget, authority, need, and timeline (BANT) to determine sales readiness and potential.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-3">📦</div>
+                    <h3 class="text-xl font-semibold mb-2">Poor Inventory Visibility</h3>
+                    <p class="text-gray-600">No real-time view of stock across warehouses, making accurate quoting and fulfillment difficult.</p>
                 </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-             <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">✨</div>
-                    <div class="step-title">4. Lead Conversion</div>
-                    <p class="step-description">Qualified leads are converted into new records for Contacts, Accounts, and associated Deals (Opportunities) within the CRM system.</p>
+                <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="text-5xl mb-3">✉️</div>
+                    <h3 class="text-xl font-semibold mb-2">Unreliable Integrations</h3>
+                    <p class="text-gray-600">Inconsistent email syncing with Outlook led to missed communications and poor tracking.</p>
                 </div>
-                <div class="vertical-arrow">↓</div>
             </div>
+        </section>
 
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">👥</div>
-                    <div class="step-title">5. Account Management</div>
-                    <p class="step-description">The Account record serves as the central hub for all customer-related information and interactions, fostering a unified view.</p>
+        <section id="solution" class="mb-16 bg-[#005082] text-white p-8 md:p-12 rounded-lg shadow-xl">
+            <h2 class="text-3xl font-bold text-center mb-8">The Solution: A Unified Zoho Ecosystem</h2>
+            <p class="max-w-3xl mx-auto text-center text-gray-200 mb-10">By implementing the Zoho suite, Wetroom Materials will centralize its core business functions into a single, cohesive platform. This integration eliminates data silos, automates workflows, and provides a 360-degree view of the business.</p>
+            <div class="flex flex-col md:flex-row items-center justify-center space-y-8 md:space-y-0 md:space-x-8">
+                <div class="text-center">
+                    <div class="bg-[#0077C0] p-6 rounded-full inline-block shadow-lg">
+                        <span class="text-4xl">📚</span>
+                    </div>
+                    <h3 class="font-semibold mt-2">Zoho Books</h3>
                 </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">📞</div>
-                    <div class="step-title">6. Contact Management</div>
-                    <p class="step-description">Individual contact persons linked to accounts are managed, including communication history, roles, and preferences.</p>
+                <div class="text-center">
+                    <div class="bg-[#0077C0] p-6 rounded-full inline-block shadow-lg">
+                        <span class="text-4xl">📈</span>
+                    </div>
+                    <h3 class="font-semibold mt-2">Zoho CRM</h3>
                 </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">💰</div>
-                    <div class="step-title">7. Opportunity/Deal Management</div>
-                    <p class="step-description">Tracking of sales opportunities through various stages from initial qualification to closure (won/lost), providing pipeline visibility.</p>
+                <div class="text-center">
+                    <div class="bg-[#0077C0] p-6 rounded-full inline-block shadow-lg">
+                        <span class="text-4xl">📋</span>
+                    </div>
+                    <h3 class="font-semibold mt-2">Zoho Inventory</h3>
                 </div>
-                <div class="vertical-arrow">↓</div>
-            </div>
-
-            <span class="arrow horizontal-arrow">→</span>
-
-            <div class="flow-item">
-                <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">📅</div>
-                    <div class="step-title">8. Activity Management</div>
-                    <p class="step-description">All sales-related activities (calls, emails, meetings, tasks) are logged and associated with relevant records for comprehensive tracking.</p>
+                <div class="text-center">
+                    <div class="bg-[#0077C0] p-6 rounded-full inline-block shadow-lg">
+                        <span class="text-4xl">📢</span>
+                    </div>
+                    <h3 class="font-semibold mt-2">Zoho Marketing</h3>
                 </div>
-                <div class="vertical-arrow">↓</div>
             </div>
-        </div>
+        </section>
+
+        <section id="process-flow" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#005082] mb-10">The Transformed End-to-End Process Flow</h2>
+            <div class="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-y-4">
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#00A1E4]">1. Lead to Customer</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#00A1E4]">2. Customer to Deal</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#00A1E4]">3. Deal to Quote</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#00A1E4]">4. Quote to Sales Order</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#00A1E4]">5. Sales Order to Shipment</div></div>
+                <div class="w-full md:hidden my-2 border-t-2 border-dashed border-gray-300"></div>
+                <div class="flowchart-arrow md:hidden">↓</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#0077C0]">6. Shipment to Invoicing</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#0077C0]">7. Invoice to Stock Movement</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#0077C0]">8. Purchase Order to Receive</div></div>
+                <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#0077C0]">9. Purchase Receive to Vendor Bill</div></div>
+                 <div class="flowchart-arrow">→</div>
+                <div class="flowchart-step"><div class="bg-white p-3 rounded-lg shadow-md border-l-4 border-[#0077C0]">10. Vendor Bill to Stock</div></div>
+            </div>
+        </section>
+
+        <section id="improvements" class="mb-16">
+            <h2 class="text-3xl font-bold text-center text-[#005082] mb-10">Key Improvements & Automation</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005082]">Automated Pricing & Discounts</h3>
+                    <p class="text-gray-600 mb-4">The system automatically applies the correct Sterling (UK) or Euro (EU) price list and customer-specific discounts, eliminating manual errors and accelerating the quote process.</p>
+                    <div class="chart-container h-64">
+                        <canvas id="pricingAutomationChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005082]">Real-Time Inventory Visibility</h3>
+                    <p class="text-gray-600 mb-4">Gain a live, accurate view of stock levels across all warehouses. Stock is adjusted automatically as components are bundled or goods are dispatched, preventing overselling.</p>
+                    <div class="chart-container h-64">
+                        <canvas id="inventoryChart"></canvas>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005082]">Streamlined Customs Invoicing</h3>
+                    <p class="text-gray-600 mb-4">A fully automated process generates customs-compliant commercial invoices, consolidating multiple shipments and including all necessary data like commodity codes and weights for rapid clearance.</p>
+                    <div class="flex items-center justify-center h-64">
+                        <div class="text-center">
+                            <span class="text-8xl">📄</span>
+                            <p class="font-semibold text-lg mt-2 text-gray-700">Automated Documentation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005082]">Efficient Picking & Packing</h3>
+                    <p class="text-gray-600 mb-4">Automatically generate detailed picking lists with all required components for an order. These lists can be emailed directly to warehouse staff, ensuring accuracy and speed in fulfillment.</p>
+                    <div class="flex items-center justify-center h-64">
+                        <div class="text-center">
+                            <span class="text-8xl">📦</span>
+                            <p class="font-semibold text-lg mt-2 text-gray-700">Accurate Order Fulfillment</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005082]">Flexible Bespoke Quoting</h3>
+                    <p class="text-gray-600 mb-4">Handle complex installations and custom items by adding custom line items with logic-based pricing (e.g., per square meter), moving calculations from offline spreadsheets into the unified system.</p>
+                     <div class="flex items-center justify-center h-64">
+                        <div class="text-center">
+                            <span class="text-8xl">📐</span>
+                            <p class="font-semibold text-lg mt-2 text-gray-700">Custom Pricing Models</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h3 class="text-xl font-semibold mb-3 text-[#005082]">Accurate Financial Reporting</h3>
+                    <p class="text-gray-600 mb-4">Resolve currency discrepancies by tying all financial transactions to the delivery date exchange rate. Generate powerful reports like the Sales Reconciliation on demand.</p>
+                    <div class="chart-container h-64">
+                         <canvas id="reconciliationChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </section>
+
     </div>
+
+    <script>
+        const brilliantBluesPalette = {
+            primary: '#00A1E4',
+            secondary: '#0077C0',
+            dark: '#005082',
+            accent: '#FFC107',
+            light: '#E0F2FE',
+            text: '#333'
+        };
+
+        const wrapLabel = (label, maxWidth) => {
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if (currentLine.length + words[i].length + 1 < maxWidth) {
+                    currentLine += ' ' + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        };
+        
+        const commonTooltipCallback = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                              return label.join(' ');
+                            }
+                            return label;
+                        }
+                    }
+                }
+            }
+        };
+
+        new Chart(document.getElementById('pricingAutomationChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Manual Work', 'Time Saved by Automation'],
+                datasets: [{
+                    data: [35, 65],
+                    backgroundColor: [brilliantBluesPalette.secondary, brilliantBluesPalette.primary],
+                    borderColor: '#fff',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: commonTooltipCallback.plugins
+            }
+        });
+
+        new Chart(document.getElementById('inventoryChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Before Zoho', 'After Zoho'],
+                datasets: [{
+                    label: 'Inventory Accuracy',
+                    data: [65, 98],
+                    backgroundColor: [brilliantBluesPalette.secondary, brilliantBluesPalette.primary],
+                    borderColor: brilliantBluesPalette.dark,
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100,
+                        ticks: {
+                            callback: function(value) { return value + "%" }
+                        }
+                    }
+                },
+                plugins: commonTooltipCallback.plugins
+            }
+        });
+
+        new Chart(document.getElementById('reconciliationChart'), {
+            type: 'bar',
+            data: {
+                labels: [
+                    wrapLabel('Invoices from Stock System', 16), 
+                    wrapLabel('Returns and Re-invoicing', 16), 
+                    wrapLabel('Installation Service Invoices', 16)
+                ],
+                datasets: [{
+                    label: 'Revenue (€)',
+                    data: [120000, 15000, 25000],
+                    backgroundColor: [brilliantBluesPalette.primary, brilliantBluesPalette.secondary, brilliantBluesPalette.dark]
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: commonTooltipCallback.plugins
+            }
+        });
+    </script>
+
 </body>
 </html>
