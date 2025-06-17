@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zoho: Purchase Order to Purchase Receive Management Process Flow</title>
+    <title>Zoho CRM: Purchase Receive to Vendor Bill Processing Flow</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
@@ -105,16 +105,16 @@
 </head>
 <body>
     <div class="container mx-auto p-4 md:p-8">
-        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#005082] mb-10">Zoho Inventory: Purchase Order to Purchase Receive Management Process Flow</h1>
-        <p class="max-w-4xl mx-auto text-center text-gray-700 mb-12">This process flow details how Zoho CRM facilitates the creation and management of purchase orders, from identifying backorder needs to updating inventory upon the receipt of goods.</p>
+        <h1 class="text-3xl md:text-4xl font-bold text-center text-[#005082] mb-10">Zoho Inventory: Purchase Receive to Vendor Bill Processing Flow</h1>
+        <p class="max-w-4xl mx-auto text-center text-gray-700 mb-12">This process flow illustrates the standard steps for processing a vendor bill following the receipt of purchased goods within Zoho CRM (and integrated Zoho Books/Inventory modules).</p>
 
         <div class="flow-container flex justify-center items-stretch">
 
             <div class="flow-item">
                 <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">⬅️</div>
-                    <div class="step-title">1. Backorder Needs Identified</div>
-                    <p class="step-description">System identifies items on sales orders that require backordering due to insufficient stock.</p>
+                    <div class="step-icon">📦</div>
+                    <div class="step-title">1. Goods Receipt Confirmed</div>
+                    <p class="step-description">Confirmation that purchased goods have been physically received and recorded in inventory.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -123,9 +123,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">📝</div>
-                    <div class="step-title">2. Purchase Order Creation</div>
-                    <p class="step-description">A purchase order is automatically triggered or manually created in Zoho Inventory/Books based on backorder requirements.</p>
+                    <div class="step-icon">✉️</div>
+                    <div class="step-title">2. Vendor Bill Received</div>
+                    <p class="step-description">The invoice/bill is received from the vendor for the delivered goods/services.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -134,9 +134,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">📧</div>
-                    <div class="step-title">3. Send PO to Vendor</div>
-                    <p class="step-description">The generated purchase order is sent to the vendor (supplier) for order fulfillment.</p>
+                    <div class="step-icon">🔍</div>
+                    <div class="step-title">3. Match Bill to PO & Receive</div>
+                    <p class="step-description">The vendor bill is matched against the original Purchase Order and the Goods Receipt records.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -145,9 +145,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">📦</div>
-                    <div class="step-title">4. Goods Received</div>
-                    <p class="step-description">Physical receipt of purchased goods from the vendor at the designated warehouse/location.</p>
+                    <div class="step-icon">📝</div>
+                    <div class="step-title">4. Create Vendor Bill Entry</div>
+                    <p class="step-description">A corresponding Vendor Bill record is created in Zoho Books/Inventory, marking the liability.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -156,9 +156,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#00A1E4]">
-                    <div class="step-icon">⬆️</div>
-                    <div class="step-title">5. Inventory Level Update</div>
-                    <p class="step-description">Upon receipt confirmation, inventory levels are automatically updated to reflect the new stock.</p>
+                    <div class="step-icon">✅</div>
+                    <div class="step-title">5. Bill Approved for Payment</div>
+                    <p class="step-description">The vendor bill is internally approved and scheduled for payment based on terms.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
@@ -167,9 +167,9 @@
 
             <div class="flow-item">
                 <div class="flow-card border-[#0077C0]">
-                    <div class="step-icon">✅</div>
-                    <div class="step-title">6. Purchase Order Closed/Fulfilled</div>
-                    <p class="step-description">The purchase order status is updated, indicating successful receipt of goods.</p>
+                    <div class="step-icon">💵</div>
+                    <div class="step-title">6. Process Vendor Payment</div>
+                    <p class="step-description">Payment is issued to the vendor, clearing the outstanding liability.</p>
                 </div>
                 <div class="vertical-arrow">↓</div>
             </div>
